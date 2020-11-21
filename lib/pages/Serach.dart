@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
+
+
+
+
+
+///搜索页面
 class SearchPage extends StatelessWidget {
-  final arguments; 
+  final arguments;
+
+
   SearchPage({this.arguments});
 
   @override
@@ -9,7 +17,17 @@ class SearchPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('搜索页面'),
       ),
-      body: Text("搜索页面内容区域${arguments != null? arguments['id'] : '0'}"),
+      body: Column(
+        children: [
+          Text("搜索页面内容区域"),
+          MaterialButton(
+              child: Text("销毁页面反参数${arguments['name']}"),
+              onPressed: (){
+              Navigator.pop(context,{"name":"啦啦啦啦${arguments.toString()}"});
+          })
+
+        ],
+      ),
     );
   }
 }
